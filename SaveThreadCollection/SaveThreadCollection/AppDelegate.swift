@@ -25,12 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         concurrentQueue.async(flags: .barrier) {
             for _ in 0..<10 {
+                self.saveThreadCollection.getVal()
                 self.saveThreadCollection.addNewValue()
             }
         }
         
         concurrentQueue.async {
             for _ in 0..<10 {
+                self.saveThreadCollection.getVal()
                 self.saveThreadCollection.removeValue()
             }
         }
