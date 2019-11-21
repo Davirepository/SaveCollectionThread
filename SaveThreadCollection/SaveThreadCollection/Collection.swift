@@ -19,6 +19,13 @@ class Collection {
                                                 autoreleaseFrequency: .never,
                                                 target: nil)
     
+    func getVal() -> Int {
+        return concurrentQueue.sync {
+            print("get \(count)")
+            return count
+        }
+    }
+    
     func addNewValue() {
         concurrentQueue.async(flags: .barrier) {
             let randomInt = Int.random(in: 1...200)
