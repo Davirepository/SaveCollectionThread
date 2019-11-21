@@ -11,7 +11,7 @@ import Foundation
 class Collection {
     
     private var collection = [0]
-    private var count = 0
+    var count = 0
     
     private let concurrentQueue = DispatchQueue(label: "com.collection.barrier",
                                                 qos: .unspecified,
